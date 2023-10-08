@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<div>
+<div id="buffcalculation" style="display: none">
     <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/></br></br>
     <label for="troopRang">Ранг войск:</label>
     <select name="choice" id="troopRang">
@@ -25,10 +25,19 @@
 </div>
 <div>
     <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
-    <label for="useBuff">Расчет по бафу:</label><input type="checkbox" id="useBuff"/>
+    <label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
 </div>
 
 </body>
+<script>
+    var checkbox = document.getElementById('usebuff'), 
+        buffcalc = document.getElementById('buffcalculation');
+    checkbox.addEventListener('change', function() {
+        buffcalc.style.display = (this.checked) ? '' : 'none';
+
+            //.value = (this.checked) ? 'Accepted' : '';
+    }, false);
+</script>
 </html>
 
 
