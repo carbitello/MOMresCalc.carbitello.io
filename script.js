@@ -6,5 +6,7 @@
         }else{
             buffcalc.classList.add('hide');
         }
+        var element = document.getElementById("tomatoes");
+        element.innerHTML = "pomidor";
         
     }, false);

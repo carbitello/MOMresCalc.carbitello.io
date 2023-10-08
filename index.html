@@ -13,6 +13,7 @@
     background-image: url("images/buff.jpg");
     background-repeat: no-repeat;
     background-size: contain;
+    width: auto;
     
 }
     
@@ -47,6 +48,21 @@
     </select>
 </div>
 <p>_________</p>
+<div id="cycleprice">
+    <label for="troopspercycle">Количество войск в цикле:</label></br><input type="number" id="troopspercycle"/></br>
+    <label for="tomatoespercycle">Помидоры за цикл:</label></br><input type="number" id="tomatoespercycle"/></br>
+    <label for="woodpercycle">Дерево за цикл:</label></br><input type="number" id="woodpercycle"/></br>
+    <label for="steelpercycle">Сталь за цикл:</label></br><input type="number" id="steelpercycle"/></br>
+    <label for="oilpercycle">Нефть за цикл:</label></br><input type="number" id="oilpercycle"/></br>
+</div>
+<p>_________</p>
+<div id="report">
+    <label for="useeconomybuff">с бафом экономии:</label><input type="checkbox" id="useeconomybuff"/></br>
+    <label>Помидоры:</label><p id="tomatoes"></p></br>
+    <label>Дерево:</label><p id="wood"></p></br>
+    <label>Сталь:</label><p id="steel"></p></br>
+    <label>Нефть:</label><p id="oil"></p></br>
+</div>
 </body>
 <script src=script.js type="text/javascript"></script>
 </html>
