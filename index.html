@@ -5,8 +5,25 @@
 
 
 </head>
+<style>
+#buffcalculation {
+    max-height: 200px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+    background-image: url("images/buff.jpg");
+}
+
+#buffcalculation.hide {
+    max-height: 0;
+}
+</style>
 <body>
-<div id="buffcalculation" style="display: none">
+
+<div>
+    <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
+    <label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
+</div>
+<div id="buffcalculation" class='hide'>
     <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/></br></br>
     <label for="troopRang">Ранг войск:</label>
     <select name="choice" id="troopRang">
@@ -23,19 +40,9 @@
         <option value="T11">T11</option>
     </select>
 </div>
-<div>
-    <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
-    <label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
-</div>
-
+<p>_________</p>
 </body>
-<script type="text/javascript">
-    var checkbox = document.getElementById('usebuff'), 
-        buffcalc = document.getElementById('buffcalculation');
-    checkbox.addEventListener('change', function() {
-        buffcalc.style.display = (this.checked) ? '' : 'none';
-    }, false);
-</script>
+<script src=script.js type="text/javascript"></script>
 </html>
 
 
