@@ -30,10 +30,7 @@
         setTroopsCount();
     });
     troopsCount.addEventListener("input", (event) => {
-        if(troopspercycle.value>1){
-            refreshResults();
-        }
-        
+        refreshResults();        
     });
     troopspercycle.addEventListener("input", (event) => {
         refreshResults();
@@ -52,13 +49,15 @@
         setOilCount();
     });
 
-
     function setTroopsCount(){
         troopsCount.value = Math.round(cbButbuff.value / troopRang.value);
+        refreshResults();
     }
 
     function setResourceCount(element, resValue){
-        element.innerHTML = Math.round((troopsCount.value * resValue * getEconomyCoefficient())/ troopspercycle.value);
+        if(troopspercycle.value>1){
+            element.innerHTML = Math.round((troopsCount.value * resValue * getEconomyCoefficient())/ troopspercycle.value);
+        }
     }
     function refreshResults(){
         setTomatoesCount();

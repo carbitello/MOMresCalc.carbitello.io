@@ -6,57 +6,66 @@
 
 </head>
 <style>
-#buffcalculation {
-    max-height: 200px;
-    transition: max-height 0.5s;
-    overflow: hidden;
-    background-image: url("images/buff.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: auto;
+    #buffcalculation {
+        max-height: 200px;
+        transition: max-height 0.5s;
+        overflow: hidden;
+        width: auto;
     
-}
-    
-    #buffcalculation > label{
+    }
+    #buffcalculation.hide {
+        max-height: 0;
+    }
+    .rounded-corners{
+        border-radius: 15px;
+        padding: 15px;
+        
+    }
+    .background-block{
+        background: #67ADDD;
+        margin-top: 10px;
+    }
+    .background-block > label{
         color: white;
     }
-#buffcalculation.hide {
-    max-height: 0;
-}
+    .background-block > input{
+        width: auto;
+    }
+
 </style>
 <body>
-
-<div>
-    <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
-    <label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
+<div class="rounded-corners background-block">
+<label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
+    <div id="buffcalculation" class='background-block hide'>
+        <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/></br>
+        <label for="troopRang">Ранг войск:</label>
+        <select name="choice" id="troopRang">
+            <option value="4">T1</option>
+            <option value="6">T2</option>
+            <option value="8">T3</option>
+            <option value="12">T4</option>
+            <option value="15">T5</option>
+            <option value="20">T6</option>
+            <option value="25">T7</option>
+            <option value="33">T8</option>
+            <option value="45">T9</option>
+            <option value="60" selected>T10</option>
+            <option value="75">T11</option>
+        </select>
+    </div>
+    <div class="background-block">
+        <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
+        
+    </div>
 </div>
-<div id="buffcalculation" class='hide'>
-    <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/></br></br>
-    <label for="troopRang">Ранг войск:</label>
-    <select name="choice" id="troopRang">
-        <option value="4">T1</option>
-        <option value="6">T2</option>
-        <option value="8">T3</option>
-        <option value="12">T4</option>
-        <option value="15">T5</option>
-        <option value="20">T6</option>
-        <option value="25">T7</option>
-        <option value="33">T8</option>
-        <option value="45">T9</option>
-        <option value="60" selected>T10</option>
-        <option value="75">T11</option>
-    </select>
-</div>
-<p>_________</p>
-<div id="cycleprice">
+<div id="cycleprice"  class="rounded-corners background-block">
     <label for="troopspercycle">Количество войск в цикле:</label></br><input type="number" id="troopspercycle"/></br>
     <label for="tomatoespercycle">Помидоры за цикл:</label></br><input type="number" id="tomatoespercycle"/></br>
     <label for="woodpercycle">Дерево за цикл:</label></br><input type="number" id="woodpercycle"/></br>
     <label for="steelpercycle">Сталь за цикл:</label></br><input type="number" id="steelpercycle"/></br>
     <label for="oilpercycle">Нефть за цикл:</label></br><input type="number" id="oilpercycle"/></br>
 </div>
-<p>_________</p>
-<div id="report">
+<div id="report" class="rounded-corners background-block">
     <label for="useeconomybuff">с бафом экономии:</label><input type="checkbox" id="useeconomybuff"/></br>
     <label>Помидоры:</label><p id="tomatoes"></p></br>
     <label>Дерево:</label><p id="wood"></p></br>
