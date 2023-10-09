@@ -7,7 +7,7 @@
 </head>
 <style>
     #buffcalculation {
-        max-height: 200px;
+        max-height: 70px;
         transition: max-height 0.5s;
         overflow: hidden;
         width: auto;
@@ -30,7 +30,7 @@
     }
     .background-block > input{
         width: 100%;
-        height: 110%;
+        height: 30px;
         box-sizing: border-box;
         border-radius: 5px;
         border-color: white;
@@ -38,6 +38,32 @@
         background: transparent;
         color: white;
     }
+    .background-block > input:focus {
+        outline: none;
+    }
+.background-block > input::-webkit-outer-spin-button,
+.background-block > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+    /*
+    .row{
+        align-items: center;
+        height: 30px;
+        box-sizing: border-box;
+        border-style: solid;
+        background: transparent;
+        color: white;
+    }
+    .column{
+        align-self: center;
+        height: 30px;
+        box-sizing: border-box;
+        border-style: none;
+        background: transparent;
+        color: white;
+    }
+    */
     body {
         background: #014666;
     }
@@ -45,7 +71,10 @@
 </style>
 <body>
 <div class="rounded-corners background-block">
-<label for="usebuff">Расчет по бафу:</label><input type="checkbox" id="usebuff"/>
+    <div class="background-block row">
+        <input type="checkbox" id="usebuff" class="column"/>
+        <label for="usebuff">Расчет по бафу</label>
+    </div>
     <div id="buffcalculation" class='background-block hide'>
         <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/></br>
         <label for="troopRang">Ранг войск:</label>
@@ -64,16 +93,19 @@
         </select>
     </div>
     <div class="background-block">
-        <label for="troopsCount">Колличество войск:</label></br><input type="number" id="troopsCount"/></br>
+        <label for="troopsCount">Количество войск:</label></br><input type="number" id="troopsCount"/></br>
         
     </div>
 </div>
 <div id="cycleprice"  class="rounded-corners background-block">
-    <label for="troopspercycle">Количество войск в цикле:</label></br><input type="number" id="troopspercycle"/></br>
-    <label for="tomatoespercycle">Помидоры за цикл:</label></br><input type="number" id="tomatoespercycle"/></br>
-    <label for="woodpercycle">Дерево за цикл:</label></br><input type="number" id="woodpercycle"/></br>
-    <label for="steelpercycle">Сталь за цикл:</label></br><input type="number" id="steelpercycle"/></br>
-    <label for="oilpercycle">Нефть за цикл:</label></br><input type="number" id="oilpercycle"/></br>
+    
+    <div class="background-block">
+        <label for="troopspercycle">Количество войск в цикле:</label></br><input type="number" id="troopspercycle"/></br>
+        <label for="tomatoespercycle">Помидоры за цикл:</label></br><input type="number" id="tomatoespercycle"/></br>
+        <label for="woodpercycle">Дерево за цикл:</label></br><input type="number" id="woodpercycle"/></br>
+        <label for="steelpercycle">Сталь за цикл:</label></br><input type="number" id="steelpercycle"/></br>
+        <label for="oilpercycle">Нефть за цикл:</label></br><input type="number" id="oilpercycle"/></br>
+    </div>
 </div>
 <div id="report" class="rounded-corners background-block">
     <label for="useeconomybuff">с бафом экономии:</label><input type="checkbox" id="useeconomybuff"/></br>
