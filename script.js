@@ -1,5 +1,6 @@
     var checkbox = document.getElementById('usebuff'), 
         buffcalc = document.getElementById('buffcalculation'),
+        troopscalc = document.getElementById('troopscalculation'),
         cbButbuff = document.getElementById('cbButbuff'),
         troopRang = document.getElementById('troopRang'),
         troopsCount = document.getElementById('troopsCount'),
@@ -14,9 +15,11 @@
     checkbox.addEventListener('change', function() {
         if(this.checked){
             buffcalc.classList.remove('hide');
+            //troopscalc.classList.add('hide');
             troopsCount.disabled = true;
         }else{
             buffcalc.classList.add('hide');
+            //troopscalc.classList.remove('hide');
             troopsCount.disabled = false;
         }
     }, false);
