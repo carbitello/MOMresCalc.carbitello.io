@@ -11,22 +11,25 @@
         --panel-color: #67ADDD;
         --font-color: white;
         --border-color: white;
+        --font-size: 20pt;
+        --element-border-radius: 5px;
+        --element-border: 2px solid var(--border-color);
     }
     body {
         background: var(--general-background);  
         color: var(--font-color);
+        font-size: var(--font-size);
     }
     label{
-        font-size: 24pt;
         color: inherit;
     }
     select{
         appearance: none;
         background-color: transparent;
-        border: 2px solid white;
-        border-radius: 5px;
+        border: var(--element-border);
+        border-radius: inherit;
         padding: 1pt;
-        font-size: 24pt;
+        font-size: inherit;
         cursor: inherit;
         line-height: inherit;
         outline: none;
@@ -35,19 +38,19 @@
     }
     select option {
         background: var(--panel-color);
-        border: 2px solid white;
-        border-radius: 5px;
+        border: var(--element-border);
+        border-radius: inherit;
     }
     input{
         width: 100%;
         height: 40px;
         box-sizing: border-box;
-        border-radius: 5px;
+        border-radius: inherit;
         border-color: white;
         border-style: solid;
         background: transparent;
         color: white;
-        font-size: 20pt;
+        font-size: inherit;
     }
     input:focus {
         outline: none;
@@ -58,6 +61,7 @@
     }
     div{
         margin-top: 10px;
+        border-radius: var(--element-border-radius);
     }
     
     .rang-select{
@@ -77,6 +81,28 @@
         padding: 15px;
         background: var(--panel-color);        
     }
+    .collapse-checkbox {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }    
+    .collapse-checkbox+label {
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+    }
+    .collapse-checkbox+label::before {
+      content: '▼';
+      display: inline-block;
+      width: 1em;
+      height: 1.1em;
+      flex-shrink: 0;
+      flex-grow: 0;  
+    }
+    .collapse-checkbox:checked+label::before {
+          content: '▲';
+    }
+    /*
     .custom-checkbox {
       position: absolute;
       z-index: -1;
@@ -98,12 +124,13 @@
     .custom-checkbox:checked+label::before {
           content: '▲';
     }
+    */
 </style>
 <body>
 <div class="panel-block">
     <div>
-        <input type="checkbox" id="usebuff" class="custom-checkbox"/>
-        <label for="usebuff">Использовать значение бафа тренировки</label>
+        <input type="checkbox" id="usebuff" class="collapse-checkbox"/>
+        <label for="usebuff">Бафф тренировки</label>
     </div>
     <div id="buffcalculation" class='hide'>
         <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/><div class="background-block rang-select">
