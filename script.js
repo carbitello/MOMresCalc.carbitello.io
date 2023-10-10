@@ -1,4 +1,4 @@
-    var checkbox = document.getElementById('usebuff'), 
+    var usebuffcheckbox = document.getElementById('usebuff'), 
         buffcalc = document.getElementById('buffcalculation'),
         troopscalc = document.getElementById('troopscalculation'),
         cbButbuff = document.getElementById('cbButbuff'),
@@ -9,10 +9,11 @@
         woodpercycle = document.getElementById('woodpercycle'),
         steelpercycle = document.getElementById('steelpercycle'),
         oilpercycle = document.getElementById('oilpercycle'),
-        useeconomybuff = document.getElementById('useeconomybuff');
-
+        useeconomybuff = document.getElementById('useeconomybuff'),
+        collapsecyclecheckbox = document.getElementById('collapsecycle'),
+        cycleinfo = document.getElementById('cycleinfo');
         
-    checkbox.addEventListener('change', function() {
+    usebuffcheckbox.addEventListener('change', function() {
         if(this.checked){
             buffcalc.classList.remove('hide');
             //troopscalc.classList.add('hide');
@@ -21,6 +22,13 @@
             buffcalc.classList.add('hide');
             //troopscalc.classList.remove('hide');
             troopsCount.disabled = false;
+        }
+    }, false);
+    collapsecyclecheckbox.addEventListener('change', function() {
+        if(this.checked){
+            cycleinfo.classList.remove('hide');
+        }else{
+            cycleinfo.classList.add('hide');
         }
     }, false);
     useeconomybuff.addEventListener('change', function() {

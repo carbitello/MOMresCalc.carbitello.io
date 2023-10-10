@@ -67,14 +67,17 @@
     .rang-select{
         margin-top: 5px;
     }
-    #buffcalculation, #troopscalculation {
+    #buffcalculation, #cycleinfo {
         max-height: 130px;
         transition: max-height 0.5s;
         overflow: hidden;
         width: auto;        
     }
-    #buffcalculation.hide, #troopscalculation.hide {
+    #buffcalculation.hide, #cycleinfo.hide {
         max-height: 0;
+    }
+    #cycleinfo {
+        max-height: 400px;      
     }
     .panel-block{
         border-radius: 15px;
@@ -102,38 +105,42 @@
     .collapse-checkbox:checked+label::before {
           content: '▲';
     }
-    /*
+    
     .custom-checkbox {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-    }    
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    } 
     .custom-checkbox+label {
-      display: inline-flex;
-      align-items: center;
-      user-select: none;
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
     }
     .custom-checkbox+label::before {
-      content: '▼';
-      display: inline-block;
-      width: 1em;
-      height: 1.1em;
-      flex-shrink: 0;
-      flex-grow: 0;  
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1.1em;
+        flex-shrink: 0;
+        flex-grow: 0;  
+        border: var(--element-border);
+        border-radius: 0.25em;
+        margin-right: 0.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 95% 95%;
     }
     .custom-checkbox:checked+label::before {
-          content: '▲';
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
     }
-    */
+
 </style>
 <body>
 <div class="panel-block">
-    <div>
-        <input type="checkbox" id="usebuff" class="collapse-checkbox"/>
-        <label for="usebuff">Бафф тренировки</label>
-    </div>
+    <input type="checkbox" id="usebuff" class="collapse-checkbox"/>
+    <label for="usebuff">Бафф тренировки</label>
     <div id="buffcalculation" class='hide'>
-        <label for="cbButbuff">Значение БМ во включенном бафе:</label></br><input type="number" id="cbButbuff"/><div class="background-block rang-select">
+        <label for="cbButbuff">Значение баффа:</label></br><input type="number" id="cbButbuff"/><div class="background-block rang-select">
             <label for="troopRang">Ранг войск:</label>
             <select name="choice" id="troopRang">
                 <option value="4">T1</option>
@@ -155,7 +162,9 @@
     </div>
 </div>
 <div id="cycleprice"  class="panel-block">
-    <div>
+    <input type="checkbox" id="collapsecycle" class="collapse-checkbox"/>
+    <label for="collapsecycle">Параметры цикла</label>
+    <div id="cycleinfo" class="hide">
         <label for="troopspercycle">Количество войск в цикле:</label></br><input type="number" id="troopspercycle"/></br>
         <label for="tomatoespercycle">Помидоры за цикл:</label></br><input type="number" id="tomatoespercycle"/></br>
         <label for="woodpercycle">Дерево за цикл:</label></br><input type="number" id="woodpercycle"/></br>
@@ -164,11 +173,12 @@
     </div>
 </div>
 <div id="report" class="panel-block">
-    <input type="checkbox" id="useeconomybuff"/><label for="useeconomybuff">с бафом экономии:</label></br>
-    <label>Помидоры:</label><p id="tomatoes"></p></br>
-    <label>Дерево:</label><p id="wood"></p></br>
-    <label>Сталь:</label><p id="steel"></p></br>
-    <label>Нефть:</label><p id="oil"></p></br>
+    <input type="checkbox" id="useeconomybuff" class="custom-checkbox"/>
+    <label for="useeconomybuff">Снижение потребления</label></br>
+    <label>Помидоры:</label><label id="tomatoes"></label></br>
+    <label>Дерево:</label><label id="wood"></label></br>
+    <label>Сталь:</label><label id="steel"></label></br>
+    <label>Нефть:</label><label id="oil"></label></br>
 </div>
 </body>
 <script src=script.js type="text/javascript"></script>
