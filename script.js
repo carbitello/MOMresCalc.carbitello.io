@@ -12,6 +12,8 @@
         useeconomybuff = document.getElementById('useeconomybuff'),
         collapsecyclecheckbox = document.getElementById('collapsecycle'),
         cycleinfo = document.getElementById('cycleinfo');
+        sendbutton = document.getElementById('sendbutton');
+
         
     usebuffcheckbox.addEventListener('change', function() {
         if(this.checked){
@@ -59,7 +61,9 @@
     oilpercycle.addEventListener("input", (event) => {
         setOilCount();
     });
-
+    sendbutton.addEventListener("click", (event) => {
+        alert("in development now");
+    });
     function setTroopsCount(){
         troopsCount.value = Math.round(cbButbuff.value / troopRang.value);
         refreshResults();
